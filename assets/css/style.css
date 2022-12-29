@@ -21,10 +21,12 @@ h1 {
     background-size: cover;
 }
 
-.div-title-and-topics {
+.div-layout-topics {
+    display: flex;
+    align-items: center;
     padding: 40px;
-    margin: auto 0 auto 30px;
-    border-radius: 25px;
+    width: 50%;
+    height: 100%;
 }
 
 .topics {
@@ -33,7 +35,7 @@ h1 {
     height: 450px;
     padding: 10px;
     padding-left: 35px;
-    border-radius: 25px;
+    border-radius: 20px 2px 20px 2px;
 }
 
 .topics h1 {
@@ -48,17 +50,114 @@ h1 {
 .topics ol li:hover {
     background-image: linear-gradient(90deg, #251749, #263159 , #FFFBEB);
     /* box-shadow: 0px 0px 10px 5px #263159; */
-    border-radius: 15px 0 0 15px;
+    border-radius: 2px 15px 2px 15px;
     color:#FFFBEB;
     font-size: 24px;
     padding-left: 5px;
+    cursor: pointer;
     transition: all 200ms ease;
 }
 
+.div-main-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.layout-content { 
+    width: fit-content;
+}
+
 .content-list {
+    display: flex;
+    flex-direction: column;
     background: #FFFBEB;
     width: 400px;
+    height: fit-content;
+    margin: 50px 0 0 40px;
+    box-shadow: inset 0 0 20px 1px #555454;
     font-size: 20px;
     padding: 20px;
     border-radius: 15px;
+    transition: all 300ms ease;
+}
+
+.content-cover {
+    z-index: 9;
+    display: flex;
+    width: 400px;
+    height: 230px;
+    border-radius: 15px;
+    border: 1px solid #bebebe;
+    box-shadow: inset 0px 0px 40px 1px #999999;
+    background: #FFFBEB;
+    font-size: 24px;
+    align-items: center;
+    justify-content: center;
+    margin: 300px 0 0 400px;
+}
+
+.content1 {
+    z-index: 8;
+    margin: 300px 0 0 400px;
+    background: #d4ceb3;
+}
+.content2 {
+    z-index: 7;
+    margin: 280px 0 0 400px;
+    background: #cfc7a7;
+
+}
+.content3 {
+    z-index: 6;
+    margin: 260px 0 0 400px;
+    background: #aca486;
+
+}
+.content4 {
+    z-index: 5;
+    margin: 240px 0 0 400px;
+    background: #b1a883;
+
+}
+.content5 {
+    z-index: 4;
+    margin: 220px 0 0 400px;
+    background: #948d71;
+
+}
+.content6 {
+    z-index: 3;
+    margin: 200px 0 0 400px;
+    background: #aa9e6c;
+
+}
+.content7 {
+    z-index: 2;
+    margin: 180px 0 0 400px;
+    background: #cebc75;
+
+}
+.content8 {
+    z-index: 1;
+    margin: 160px 0 0 400px;
+    background: #b8a55a;
+
+}
+
+.view-content {
+    z-index: 10;
+    margin: 0;
+    width: 500px;
+    height: 600px;
+}
+
+.div-close-content {
+    display: flex;
+    justify-content: end;
+}
+
+.close-content {
+    font-size: 26px;
+    cursor: pointer;
 }
