@@ -8,6 +8,18 @@ const content7 = document.querySelector('.content7');
 const content8 = document.querySelector('.content8');
 const closeContent = document.querySelector('.close-content');
 
+function noExistMouseoverInTopic(el) {
+    let valueToReturn = false;
+
+    document.querySelectorAll('.topic-tag').forEach(element => ifInForeach(element));
+
+    function ifInForeach (element) {
+        if (element.classList[0] !== el.classList[0]) valueToReturn = true
+    }
+
+    return valueToReturn;
+}
+
 function closeCard (element) {
     const parent = element.parentNode;
     const grandfather = parent.parentNode;
@@ -15,46 +27,65 @@ function closeCard (element) {
     grandfather.classList.remove('view-content');
 } 
 
+function reusingSwitch (expression, generalClass) {
+
+    // console.log(` expressão: ${expression}  classe: ${generalClass}`);
+
+    switch(expression) {
+        case 'topic1':
+
+            content1.classList.add(generalClass);
+            break;
+        case 'topic2':
+            content2.classList.add(generalClass);
+
+            break;
+        case 'topic3':
+            content3.classList.add(generalClass);
+
+            break;
+        case 'topic4':
+            content4.classList.add(generalClass);
+
+            break;
+        case 'topic5':
+            content5.classList.add(generalClass);
+
+            break;
+        case 'topic6':
+            content6.classList.add(generalClass);
+
+            break;
+        case 'topic7':
+            content7.classList.add(generalClass);
+
+            break;
+        case 'topic8':
+            content8.classList.add(generalClass);
+
+            break;
+    }
+
+}
+
 document.addEventListener('click', (e) => {
     let el = e.target;
 
     if (el.classList.value == 'close-content') closeCard(el);
 
-    switch(el.classList.value) {
-        case 'topic1':
+    document.querySelectorAll('.content-list').forEach(element => element.classList.remove('view-content'));
 
-            content1.classList.add('view-content');
-            break;
-        case 'topic2':
-            content2.classList.add('view-content');
-
-            break;
-        case 'topic3':
-            content3.classList.add('view-content');
-
-            break;
-        case 'topic4':
-            content4.classList.add('view-content');
-
-            break;
-        case 'topic5':
-            content5.classList.add('view-content');
-
-            break;
-        case 'topic6':
-            content6.classList.add('view-content');
-
-            break;
-        case 'topic7':
-            content7.classList.add('view-content');
-
-            break;
-        case 'topic8':
-            content8.classList.add('view-content');
-
-            break;
-    }
-
-
-
+    reusingSwitch(el.classList[0], 'view-content');
 });
+
+document.addEventListener('mouseover', (e) => {
+    const el = e.target;
+
+    if (noExistMouseoverInTopic(el)) {
+        document.querySelectorAll('.content-list').forEach(element => element.classList.remove('preview-content'));
+    };
+
+    reusingSwitch(el.classList[0], 'preview-content');
+});
+
+
