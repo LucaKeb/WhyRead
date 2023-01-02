@@ -7,16 +7,51 @@ const content6 = document.querySelector('.content6');
 const content7 = document.querySelector('.content7');
 const content8 = document.querySelector('.content8');
 const closeContent = document.querySelector('.close-content');
+const topicsList = document.querySelectorAll('.topic-tag');
+let widthScreen = window.innerWidth;
+console.log(`width no scope ${widthScreen}px`);
+aInTopics();
+
+function adjustScreen () {
+    widthScreen = window.innerWidth || document.documentElement.clientWidth;
+    console.log(`width in function ${widthScreen}`);
+    aInTopics();
+
+}
+
+function aInTopics () {
+
+    if (widthScreen <= 900 ) {
+        topicsList[0].innerHTML = `<a href="#content1">Melhora o vocabulário</a>`;
+        topicsList[1].innerHTML = `<a href="#content2">Desenvolve a escrita</a>`;
+        topicsList[2].innerHTML = `<a href="#content3">Melhora o foco e a concentração</a>`;
+        topicsList[3].innerHTML = `<a href="#content4">É uma foram de entretenimento</a>`;
+        topicsList[4].innerHTML = `<a href="#content5">Ajuda a desenvolver amizades</a>`;
+        topicsList[5].innerHTML = `<a href="#content6">Potencializa a memória</a>`;
+        topicsList[6].innerHTML = `<a href="#content7">Benefícia o desempenho escolar</a>`;
+        topicsList[7].innerHTML = `<a href="#content8">CURIOSIDADE</a>`;
+        console.log(topicsList);
+    } else {
+        topicsList[0].innerHTML = `Melhora o vocabulário`;
+        topicsList[1].innerHTML = `Desenvolve a escrita`;
+        topicsList[2].innerHTML = `Melhora o foco e a concentração`;
+        topicsList[3].innerHTML = `É uma foram de entretenimento`;
+        topicsList[4].innerHTML = `Ajuda a desenvolver amizades`;
+        topicsList[5].innerHTML = `Potencializa a memória`;
+        topicsList[6].innerHTML = `Benefícia o desempenho escolar`;
+        topicsList[7].innerHTML = `CURIOSIDADE`;
+    }
+}
 
 function noExistMouseoverInTopic(el) {
     let valueToReturn = false;
-
+    
     document.querySelectorAll('.topic-tag').forEach(element => ifInForeach(element));
-
+    
     function ifInForeach (element) {
         if (element.classList[0] !== el.classList[0]) valueToReturn = true
     }
-
+    
     return valueToReturn;
 }
 
@@ -87,5 +122,3 @@ document.addEventListener('mouseover', (e) => {
 
     reusingSwitch(el.classList[0], 'preview-content');
 });
-
-
