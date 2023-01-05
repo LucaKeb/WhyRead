@@ -8,17 +8,41 @@ const content7 = document.querySelector('.content7');
 const content8 = document.querySelector('.content8');
 const closeContent = document.querySelector('.close-content');
 const topicsList = document.querySelectorAll('.topic-tag');
-let widthScreen = window.innerWidth;
-console.log(`width no scope ${widthScreen}px`);
-aInTopics();
 
+// checking screen size
+let widthScreen = window.innerWidth;
+aInTopics();
+addButtonforback();
+
+// checking screen size when adjusted
 function adjustScreen () {
     widthScreen = window.innerWidth || document.documentElement.clientWidth;
-    console.log(`width in function ${widthScreen}`);
     aInTopics();
 
+    const button = document.querySelector('.aOftheBackbutton');
+    
+    if (!button) addButtonforback();
+    if (widthScreen > 900 && button){
+        button.remove();
+    }
 }
 
+// adding back button for small devices
+function addButtonforback () {
+    if (widthScreen < 900 ) {
+    
+    const tagA = document.createElement('a');
+    tagA.setAttribute("href", "#topics");
+    tagA.classList.add('aOftheBackbutton');
+
+    tagA.insertAdjacentHTML('beforeend', `<button>➤</button>`)
+
+        const section = document.querySelector(".mainSection");
+        section.appendChild(tagA);
+    }
+}
+
+// transition from browse mode to other devices
 function aInTopics () {
 
     if (widthScreen <= 900 ) {
@@ -30,7 +54,6 @@ function aInTopics () {
         topicsList[5].innerHTML = `<a href="#content6">Potencializa a memória</a>`;
         topicsList[6].innerHTML = `<a href="#content7">Benefícia o desempenho escolar</a>`;
         topicsList[7].innerHTML = `<a href="#content8">CURIOSIDADE</a>`;
-        console.log(topicsList);
     } else {
         topicsList[0].innerHTML = `Melhora o vocabulário`;
         topicsList[1].innerHTML = `Desenvolve a escrita`;
@@ -43,6 +66,7 @@ function aInTopics () {
     }
 }
 
+// effect when mouse hovers over topics 
 function noExistMouseoverInTopic(el) {
     let valueToReturn = false;
     
@@ -55,6 +79,7 @@ function noExistMouseoverInTopic(el) {
     return valueToReturn;
 }
 
+// effect of closing the content card
 function closeCard (element) {
     const parent = element.parentNode;
     const grandfather = parent.parentNode;
@@ -63,9 +88,7 @@ function closeCard (element) {
 } 
 
 function reusingSwitch (expression, generalClass) {
-
-    // console.log(` expressão: ${expression}  classe: ${generalClass}`);
-
+    
     switch(expression) {
         case 'topic1':
 
@@ -103,6 +126,7 @@ function reusingSwitch (expression, generalClass) {
 
 }
 
+// open and closed effect for content cards
 document.addEventListener('click', (e) => {
     let el = e.target;
 
@@ -113,6 +137,7 @@ document.addEventListener('click', (e) => {
     reusingSwitch(el.classList[0], 'view-content');
 });
 
+// adding hover effect to topics
 document.addEventListener('mouseover', (e) => {
     const el = e.target;
 
