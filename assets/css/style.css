@@ -189,6 +189,19 @@ h1 {
     cursor: pointer;
 }
 
+footer {
+    background: #FFFBEB;
+    width: min-content;
+    height: min-content;
+    border-radius: 5px 0px 0px 5px ;
+    padding: 2px;
+    margin-top: 5px;
+}
+
+footer p {
+    font-size: 12px;
+}
+
 /* medias queries */
 
 @media (max-width: 1180px) {
@@ -289,6 +302,7 @@ h1 {
         width: 500px;
         height: 600px;
     }
+
 }
 
 @media (max-width: 900px) {
@@ -336,11 +350,67 @@ h1 {
         margin: 0;
         font-size: 20px;
         width: 500px;
-        height: 600px;
+        height: max-content;
         border-radius: 0%;
     }
 
     .close-content {
         visibility: hidden;
+    }
+
+    .aOftheBackbutton {
+        display: flex;
+        text-decoration: none;
+        /* transform: rotate(-90deg); */
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        margin: 90vh 5px 5px 80vw;
+        z-index: 11;
+    }
+
+    .aOftheBackbutton button {
+        display: flex;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        background: rgb(197, 197, 197);
+        font-size: 28px;
+        border-radius: 50%;
+        border: none;
+        transform: rotate(-90deg);
+    }
+
+    footer {
+        width: 100%;
+        height: max-content;
+        border-radius: 5px 5px 5px 5px ;
+        padding: 2px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    footer p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 565px) {
+
+    .div-layout-topics {
+        padding: 20px 0 40px 0;
+    }
+
+    .topics {
+        width: 95%;
+    }
+
+    .content-list {
+        font-size: 20px;
+        width: 95%;
+        height: max-content;
     }
 }
